@@ -26,7 +26,7 @@ open class SVG {
     
     // YOUR CODE HERE
     public func drawLine(x1: Int, y1: Int, x2: Int, y2: Int, color: String) {
-   //     addContents("")
+        addContents(contentsToAdd: "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke=\"%s\" />\n", x1, y1, x2, y2, color);
     }
 
     //https://medium.com/@abhimuralidharan/variadic-functions-swift-54ce99a55c1d
