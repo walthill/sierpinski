@@ -7,10 +7,8 @@
 
 import SVGLibrary
 
-// Online Swift playground with good error handling
-// http://online.swiftplayground.run 
-
 // YOUR CODE HERE
+//Build a triangle from three svg lines
 func drawTriangle(_ p1: Point, _ p2: Point, _ p3: Point, _ figure: SVG) {
     figure.drawLine(x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y, color: "black");
     figure.drawLine(x1: p2.x, y1: p2.y, x2: p3.x, y2: p3.y, color: "black");
