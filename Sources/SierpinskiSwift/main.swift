@@ -1,3 +1,4 @@
+
 //
 //  main.swift
 //  SierpinskiSwift
@@ -11,9 +12,9 @@ import SVGLibrary
 
 // YOUR CODE HERE
 func drawTriangle(_ p1: Point, _ p2: Point, _ p3: Point, _ figure: SVG) {
-    figure.drawLine(p1.x, p1.y, p2.x, p2.y, "black");
-    figure.drawLine(p2.x, p2.y, p3.x, p3.y, "black");
-    figure.drawLine(p3.x, p3.y, p1.x, p1.y, "black");
+    figure.drawLine(x1: p1.x, y1: p1.y, x2: p2.x, y2: p2.y, color: "black");
+    figure.drawLine(x1: p2.x, y1: p2.y, x2: p3.x, y2: p3.y, color: "black");
+    figure.drawLine(x1: p3.x, y1: p3.y, x2: p1.x, y2: p1.y, color: "black");
 }
 
 
@@ -21,7 +22,10 @@ func drawTriangle(_ p1: Point, _ p2: Point, _ p3: Point, _ figure: SVG) {
 // three more triangles in each of the three corners of the first triangle.
 func sierpinski(p1: Point, p2: Point, p3: Point, level: Int, figure: SVG) {
     // YOUR CODE HERE
-    if level <= 0 return
+    if level <= 0
+    {
+        return
+    }
     
     drawTriangle(p1, p2, p3, figure)
     sierpinski(p1: p1, p2: midpoint(p1, p2), p3: midpoint(p1, p3), level: level - 1, figure: figure);

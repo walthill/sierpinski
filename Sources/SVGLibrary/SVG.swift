@@ -9,7 +9,7 @@ import Foundation
 
 open class SVG {
     // YOUR CODE HERE
-    var contents : String //see Kopec's assignment notes about this string type
+    var contents : String = "" //see Kopec's assignment notes about this string type
     
     // Initialize the SVG file with commands that will create a
     // width x height canvas
@@ -19,8 +19,8 @@ open class SVG {
         //TODO: work on converting values into string used to generate SVG file
         //Got it working partially with integer values but not with string values
         
-        addContents(contentsToAdd: "<?xml version=\"1.0\" encodings=\"utf-8\"?>\n")
-        addContents(contentsToAdd: "<svg version=\"1.1\" baseProfile=\"full\" width=\"\(width)\"height=\"\(height)\" xmlns=\"http://www.w3.org/2000/svg\">\n");
+        addContents(contentsToAdd: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n")
+        addContents(contentsToAdd: "<svg version=\"1.1\" baseProfile=\"full\" width=\"\(width)\" height=\"\(height)\" xmlns=\"http://www.w3.org/2000/svg\">\n");
 
     }
     
@@ -40,8 +40,10 @@ open class SVG {
         // YOUR CODE HERE
         addContents(contentsToAdd: "</svg>\n"); //see write_graphics in ssg.h
         
-        contents.write(toFile: filePath, false, contents.utf8)
-        
+        do {
+            try contents.write(toFile: filePath, atomically: false, encoding: .utf8)
+        }
+        catch {}
 /*        write(toFile path: String,
             atomically useAuxiliaryFile: Bool,
             encoding enc: UInt) throws
